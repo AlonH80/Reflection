@@ -148,7 +148,7 @@ public class ReflectClass implements Investigator {
         Class currClass=classToInvestigate;
         Stack<Class> classChain=new Stack<>();
         classChain.push(currClass);
-        while(currClass!=Object.class){
+        while(currClass!=Object.class) {
             currClass=currClass.getSuperclass();
             classChain.push(currClass);
         }
