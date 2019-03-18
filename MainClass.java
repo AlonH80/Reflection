@@ -44,10 +44,12 @@ public class MainClass
         */
         int x=6;
         Square sq=new Square(x);
-        ReflectClass refClassSquare=new ReflectClass(sq);
+        ReflectClass refClassSquare=new ReflectClass();
+        refClassSquare.load(sq);
         Square sq2=(Square)refClassSquare.createInstance(1,3);
-        System.out.println(sq2.getArea());
+//        System.out.println(sq2.getArea());
         System.out.println(refClassSquare.getInheritanceChain("->>"));
         System.out.println(refClassSquare.getNamesOfAllFieldsIncludingInheritanceChain());
+        System.out.println(refClassSquare.invokeMethodThatReturnsInt("getAreaFloat"));
     }
 }

@@ -5,13 +5,6 @@ import java.util.*;
 public class ReflectClass implements Investigator {
     private Class classToInvestigate;
     private Object realObj;
-    public ReflectClass(){
-
-    }
-
-    public ReflectClass(Object someInstance){
-        load(someInstance);
-    }
 
     @Override
     public void load(Object anInstanceOfSomething){
@@ -116,7 +109,7 @@ public class ReflectClass implements Investigator {
         try {
             func = classToInvestigate.getMethod(methodName, funcArgs);
             returnVal = (int) func.invoke(realObj, args);
-        } catch (IllegalAccessException|NoSuchMethodException|InvocationTargetException e) {
+        } catch (IllegalAccessException|NoSuchMethodException|InvocationTargetException|ClassCastException e) {
             returnVal=-1;
         }
         return returnVal;
@@ -131,7 +124,7 @@ public class ReflectClass implements Investigator {
                     return con.newInstance(args);
                 }
                 catch(InstantiationException|IllegalAccessException|InvocationTargetException e){
-                    //return null;
+
                 }
             }
         }

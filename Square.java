@@ -30,6 +30,9 @@ public class Square extends Polygon{
     public int getArea(){
         return sideLength*sideLength;
     }
+    public float getAreaFloat(){
+        return ((float)sideLength)*((float)sideLength);
+    }
 
     public int getPerimeter(){
         return sideLength*4;
